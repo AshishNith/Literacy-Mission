@@ -98,90 +98,114 @@ const Achievements = () => {
     : achievements.filter(item => item.category === activeFilter);
 
   return (
-    <div className="min-h-screen bg-white pt-24"> {/* Changed bg color and increased padding-top */}
-      <div className="container mx-auto px-4 py-12">
-        {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Our Achievements</h1>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-gray-600 text-lg">
-            A testament to our commitment towards education and empowerment since 2004
-          </p>
+    <>
+      {/* Hero Section - Scaled down */}
+      <section className="relative h-[50vh] min-h-[400px] flex items-center">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.pexels.com/photos/7092613/pexels-photo-7092613.jpeg"
+            alt="Achievement Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/70"></div>
         </div>
-
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap  justify-center gap-3 mb-12">
-          {categories.map((cat) => (
-            <Button
-              key={cat.id}
-              
-              variant={activeFilter === cat.id ? 'primary' : 'secondary'}
-              size="sm"
-              onClick={() => setActiveFilter(cat.id)}
-              icon={<i className={cat.icon}></i>}
-              className={`${
-                activeFilter === cat.id 
-                  ? 'bg-blue-600 text-white ' 
-                  : 'bg-gray-100 text-gray-800 hover:bg-gray-200 cursor-pointer'
-              }`}
-            >
-              {cat.name}
-            </Button>
-          ))}
+        <div className="relative container mx-auto px-4 z-10">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 animate-fadeIn">
+              Our Achievements
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl animate-fadeInUp animation-delay-300">
+              Celebrating our commitment to education and empowerment since 2004.
+            </p>
+          </div>
         </div>
+      </section>
 
-        {/* Timeline View */}
-        <div className="max-w-4xl mx-auto">
-          {Object.entries(
-            filteredAchievements.reduce((acc, item) => {
-              acc[item.year] = [...(acc[item.year] || []), item];
-              return acc;
-            }, {})
-          ).sort((a, b) => b[0] - a[0]).map(([year, items]) => (
-            <div key={year} className="mb-12">
-              {/* Year Marker */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="text-2xl font-bold text-blue-600">{year}</div>
-                <div className="h-px bg-blue-200 flex-grow"></div>
-              </div>
+      {/* Main Content - More compact */}
+      <section className="py-12 md:py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-6xl">
+          {/* Filter Buttons - Scrollable on mobile */}
+          <div className="overflow-x-auto pb-4 mb-8 -mx-4 px-4 flex md:flex-wrap md:justify-center gap-3">
+            {categories.map((cat) => (
+              <Button
+                key={cat.id}
+                variant={activeFilter === cat.id ? 'primary' : 'secondary'}
+                size="sm"
+                onClick={() => setActiveFilter(cat.id)}
+                icon={<i className={cat.icon}></i>}
+                className={`flex-shrink-0 ${
+                  activeFilter === cat.id 
+                    ? 'bg-blue-700 text-white shadow-lg' 
+                    : 'bg-black text-gray-800 hover:bg-gray-50'
+                }`}
+              >
+                {cat.name}
+              </Button>
+            ))}
+          </div>
 
-              {/* Achievement Cards */}
-              <div className="grid gap-6">
-                {items.map((achievement, index) => (
-                  <div 
-                    key={index}
-                    className="bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow p-6"
-                  >
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
-                          <i className={`${achievement.icon} text-2xl text-blue-600`}></i>
+          {/* Achievement Timeline - More compact spacing */}
+          <div className="max-w-4xl mx-auto">
+            {Object.entries(
+              filteredAchievements.reduce((acc, item) => {
+                acc[item.year] = [...(acc[item.year] || []), item];
+                return acc;
+              }, {})
+            ).sort((a, b) => b[0] - a[0]).map(([year, items]) => (
+              <div key={year} className="mb-12 last:mb-0">
+                {/* Year Header - Smaller */}
+                <div className="flex items-center gap-4 mb-6">
+                  <h2 className="text-4xl md:text-5xl font-bold text-blue-600">{year}</h2>
+                  <div className="h-px flex-grow bg-blue-200"></div>
+                </div>
+
+                {/* Achievement Cards - Responsive grid */}
+                <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
+                  {items.map((achievement, index) => (
+                    <div 
+                      key={index}
+                      className="group relative bg-white rounded-lg p-4 md:p-6 shadow hover:shadow-md transition-all duration-300"
+                    >
+                      <div className="absolute top-0 left-0 w-1 h-full bg-blue-600 rounded-l-lg"></div>
+                      <div className="flex gap-4">
+                        <div className="flex-shrink-0">
+                          <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-50 rounded-lg flex items-center justify-center">
+                            <i className={`${achievement.icon} text-xl md:text-2xl text-blue-600`}></i>
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2">
+                            {achievement.title}
+                          </h3>
+                          <p className="text-sm md:text-base text-gray-600">
+                            {achievement.description}
+                          </p>
                         </div>
                       </div>
-                      <div>
-                        <h3 className="text-xl font-bold mb-2 text-gray-900">{achievement.title}</h3>
-                        <p className="text-gray-600">{achievement.description}</p>
-                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center p-6 bg-white rounded-lg shadow-sm border border-gray-100">
-              <div className="text-4xl font-bold text-blue-600 mb-2">{stat.value}</div>
-              <div className="text-gray-600">{stat.label}</div>
+        {/* Stats Section - More compact */}
+        <div className="bg-blue-600 mt-12 py-10 md:py-12">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center text-white">
+                  <div className="text-3xl md:text-4xl font-bold mb-1">{stat.value}</div>
+                  <div className="text-sm md:text-base text-blue-100">{stat.label}</div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
+      </section>
       <ImageGallery />
-    </div>
+    </>
   );
 };
 
