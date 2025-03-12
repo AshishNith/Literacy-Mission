@@ -13,25 +13,30 @@ import HelpingHand from './pages/HelpingHand'
 import Sponsors from './pages/Sponsors'
 import Teams from './pages/Teams'
 import Support from './pages/Support'
+// import FloatingShapes from './components/FloatingShapes'
+
 
 const App = () => {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/achievements" element={<Achievements />} />
-        <Route path="/gyanmanthan" element={<GyanManthan />} />
-        <Route path="/spardha" element={<Spardha />} />
-        <Route path="/prayas" element={<Prayas />} />
-        <Route path="/donation" element={<Donation />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/helping-hands" element={<HelpingHand />} />
-        <Route path="/sponsors" element={<Sponsors />} />
-        <Route path="/teams" element={<Teams />} />
-        <Route path="/support" element={<Support />} />
-      </Routes>
-      <Footer />
+      <div className="relative min-h-screen">
+        {/* <FloatingShapes /> */}
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/achievements" element={<Achievements />} />
+          <Route path="/gyanmanthan" element={<GyanManthan />} />
+          <Route path="/spardha" element={<Spardha />} />
+          <Route path="/prayas" element={<Prayas />} />
+          <Route path="/donation" element={<Donation />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/helping-hands" element={<HelpingHand />} />
+          <Route path="/sponsors" element={<Sponsors />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="/support" element={<Support />} />
+        </Routes>
+        <Footer />
+      </div>
     </Router>
   )
 }

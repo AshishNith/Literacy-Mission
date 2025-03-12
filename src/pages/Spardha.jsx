@@ -1,5 +1,14 @@
 import React from 'react';
 import Button from '../components/Button';
+import img1 from '/assets/Spardha/1.jpeg';
+import img2 from '/assets/Spardha/2.jpeg';
+import img3 from '/assets/Spardha/3.jpeg';
+import img4 from '/assets/Spardha/4.jpeg';
+import img5 from '/assets/Spardha/5.jpeg';
+import img6 from '/assets/Spardha/6.jpeg';
+import img7 from '/assets/Spardha/7.jpeg';
+import img8 from '/assets/Spardha/8.jpeg';
+import Banner from '/assets/Spardha/Banner.jpg';
 
 const Spardha = () => {
   const activities = [
@@ -47,7 +56,7 @@ const Spardha = () => {
       <section className="relative min-h-[60vh] flex items-center">
         <div className="absolute inset-0">
           <img 
-            src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg"
+            src={Banner}
             alt="Spardha Sports"
             className="w-full h-full object-cover"
           />
@@ -123,14 +132,14 @@ const Spardha = () => {
 
           {/* Gallery Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-            {[1, 2, 3, 4].map((item) => (
+            {[img1, img2, img3, img4, img5, img6, img7, img8].map((image, index) => (
               <div 
-                key={item}
+                key={index}
                 className="relative aspect-square overflow-hidden rounded-lg group"
               >
                 <img 
-                  src={`https://source.unsplash.com/800x800/?sports,games,${item}`}
-                  alt={`Sports Activity ${item}`}
+                  src={image}
+                  alt={`Sports Activity ${index + 1}`}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

@@ -22,7 +22,21 @@ module.exports = {
         accent: '#60A5FA',
         dark: '#1F2937',
         light: '#F3F4F6',
-      }
+      },
+      animation: {
+        slideLeft: 'slideLeft 40s linear infinite',
+        slideRight: 'slideRight 40s linear infinite',
+      },
+      keyframes: {
+        slideLeft: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        slideRight: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+      },
     },
   },
   plugins: [],

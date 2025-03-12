@@ -8,6 +8,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
+  const [isVisible, setIsVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
 
   const navLinks = [
     { name: 'Activities', subMenu: [
@@ -29,10 +31,20 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      const isScrolledDown = currentScrollPos > 20;
+      
+      // Show/hide navbar based on scroll direction
+      setIsVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      setIsScrolled(isScrolledDown);
+      
+      setPrevScrollPos(currentScrollPos);
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [prevScrollPos]);
 
   const scrollToSection = (sectionId) => {
     setIsMenuOpen(false);
@@ -62,7 +74,7 @@ const Navbar = () => {
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-    }`}>
+    } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}

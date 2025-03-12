@@ -1,5 +1,9 @@
 import React from 'react';
 import Button from '../components/Button';
+import img1 from '/assets/Prayaas/1.jpeg';
+import img2 from '/assets/Prayaas/2.jpeg';
+import img3 from '/assets/Prayaas/3.jpeg';
+import img4 from '/assets/Prayaas/4.jpeg';
 
 const Prayas = () => {
   const performances = [
@@ -130,11 +134,11 @@ const Prayas = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-12">Event Gallery</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <div key={item} className="relative group overflow-hidden rounded-xl">
+              {[img1, img2, img3, img4].map((image, index) => (
+                <div key={index} className="relative group overflow-hidden rounded-xl">
                   <img 
-                    src={`https://source.unsplash.com/800x600/?science,education,${item}`}
-                    alt={`Gallery ${item}`}
+                    src={image}
+                    alt={`Gallery ${index + 1}`}
                     className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

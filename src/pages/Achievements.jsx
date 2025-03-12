@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Button from '../components/Button';
-import ImageGallery from '../components/ImageGallery';
 
 const Achievements = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -204,7 +203,6 @@ const Achievements = () => {
           </div>
         </div>
       </section>
-      <ImageGallery />
     </>
   );
 };

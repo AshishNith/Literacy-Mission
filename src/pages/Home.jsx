@@ -5,10 +5,12 @@ import InsideStory from '../components/InsideStory'
 import MoreStories from '../components/MoreStories'
 import Gallery from '../components/Gallery'
 import FinancialDocumentations from '../components/FinancialDocumentations'
+// import FloatingShapes from '../components/FloatingShape'
 
 const Home = () => {
     return (
     <div className="relative">
+{/* <FloatingShapes /> */}
       <section id="home">
         <Hero />
       </section>
