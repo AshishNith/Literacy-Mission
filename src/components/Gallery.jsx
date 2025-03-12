@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const firstRowRef = useRef(null);
+  const secondRowRef = useRef(null);
 
   const images = [
-    // Update image paths to reference from public folder
     { id: 1, url: '/assets/General/1.JPG', alt: "Gallery Image 1" },
     { id: 2, url: '/assets/General/2.JPG', alt: "Gallery Image 2" },
     { id: 3, url: '/assets/General/3.jpg', alt: "Gallery Image 3" },
@@ -18,6 +20,34 @@ const Gallery = () => {
     { id: 10, url: '/assets/General/10.JPG', alt: "Gallery Image 10" },
   ];
 
+  useEffect(() => {
+    // First row animation
+    gsap.to(firstRowRef.current, {
+      x: '-50%',
+      duration: 40,
+      ease: 'none',
+      repeat: -1,
+    });
+
+    // Second row animation (reverse direction)
+    gsap.to(secondRowRef.current, {
+      x: '0%',
+      duration: 40,
+      ease: 'none',
+      repeat: -1,
+    });
+    
+    // Set initial position for second row
+    gsap.set(secondRowRef.current, {
+      x: '-50%',
+    });
+
+    return () => {
+      // Cleanup animations
+      gsap.killTweensOf([firstRowRef.current, secondRowRef.current]);
+    };
+  }, []);
+
   return (
     <section className="py-20 bg-white overflow-hidden" id="gallery">
       <div className="container mx-auto px-4">
@@ -29,51 +59,26 @@ const Gallery = () => {
         </div>
 
         {/* Sliding Gallery Container */}
-        <div className="relative w-full overflow-hidden">
+        <div className="relative w-full overflow-hidden" style={{ height: '800px' }}>
           {/* First Row */}
-          <div className="flex gap-4 mb-4 animate-slideLeft" 
-               style={{ 
-                 animation: 'slideLeft 40s linear infinite',
-                 width: 'max-content'
-               }}>
+          <div 
+            ref={firstRowRef}
+            className="flex gap-4"
+            style={{ 
+              width: 'max-content',
+              position: 'absolute',
+              top: '0'
+            }}
+          >
             {[...images, ...images].map((image, index) => (
-              <div
+              <motion.div
                 key={`row1-${image.id}-${index}`}
                 className="w-72 flex-shrink-0"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
               >
-                <motion.div
+                <div
                   className="relative aspect-square overflow-hidden rounded-lg cursor-pointer"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  onClick={() => setSelectedImage(image)}
-                >
-                  <img
-                    src={image.url}
-                    alt={image.alt}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-opacity-0 hover:bg-opacity-30 transition-all duration-300" />
-                </motion.div>
-              </div>
-            ))}
-          </div>
-
-          {/* Second Row (Reverse Direction) */}
-          <div className="flex gap-4 animate-slideRight"
-               style={{ 
-                 animation: 'slideRight 40s linear infinite',
-                 width: 'max-content'
-               }}>
-            {[...images, ...images].reverse().map((image, index) => (
-              <div
-                key={`row2-${image.id}-${index}`}
-                className="w-72 flex-shrink-0"
-              >
-                <motion.div
-                  className="relative aspect-square overflow-hidden rounded-lg cursor-pointer"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
                   onClick={() => setSelectedImage(image)}
                 >
                   <img
@@ -83,8 +88,41 @@ const Gallery = () => {
                     loading="lazy"
                   />
                   <div className="absolute inset-0  bg-opacity-0 hover:bg-opacity-30 transition-all duration-300" />
-                </motion.div>
-              </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Second Row */}
+          <div 
+            ref={secondRowRef}
+            className="flex gap-4"
+            style={{ 
+              width: 'max-content',
+              position: 'absolute',
+              top: '400px'
+            }}
+          >
+            {[...images, ...images].reverse().map((image, index) => (
+              <motion.div
+                key={`row2-${image.id}-${index}`}
+                className="w-72 flex-shrink-0"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div
+                  className="relative aspect-square overflow-hidden rounded-lg cursor-pointer"
+                  onClick={() => setSelectedImage(image)}
+                >
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0  bg-opacity-0 hover:bg-opacity-30 transition-all duration-300" />
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -93,7 +131,10 @@ const Gallery = () => {
         {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ 
+              opacity: 1,
+              transition: { duration: 0.3 }
+            }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
@@ -126,27 +167,6 @@ const Gallery = () => {
           </motion.div>
         )}
       </div>
-
-      {/* CSS for animations */}
-      <style jsx>{`
-        @keyframes slideLeft {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        @keyframes slideRight {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-      `}</style>
     </section>
   );
 };
