@@ -4,8 +4,11 @@ import gsap from 'gsap';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [hoveredImage, setHoveredImage] = useState(null);
   const firstRowRef = useRef(null);
   const secondRowRef = useRef(null);
+  const firstAnimationRef = useRef(null);
+  const secondAnimationRef = useRef(null);
 
   const images = [
     { id: 1, url: '/assets/General/1.JPG', alt: "Gallery Image 1" },
@@ -22,31 +25,37 @@ const Gallery = () => {
 
   useEffect(() => {
     // First row animation
-    gsap.to(firstRowRef.current, {
-      x: '-50%',
-      duration: 40,
+    firstAnimationRef.current = gsap.to(firstRowRef.current, {
+      x: '-33.33%',
+      duration: 30,
       ease: 'none',
       repeat: -1,
     });
 
-    // Second row animation (reverse direction)
-    gsap.to(secondRowRef.current, {
+    // Second row animation
+    secondAnimationRef.current = gsap.to(secondRowRef.current, {
       x: '0%',
-      duration: 40,
+      duration: 30,
       ease: 'none',
       repeat: -1,
     });
     
-    // Set initial position for second row
-    gsap.set(secondRowRef.current, {
-      x: '-50%',
-    });
+    gsap.set(secondRowRef.current, { x: '-33.33%' });
+
+    // Update animation state based on hoveredImage
+    if (hoveredImage !== null) {
+      firstAnimationRef.current.pause();
+      secondAnimationRef.current.pause();
+    } else {
+      firstAnimationRef.current.play();
+      secondAnimationRef.current.play();
+    }
 
     return () => {
-      // Cleanup animations
-      gsap.killTweensOf([firstRowRef.current, secondRowRef.current]);
+      firstAnimationRef.current?.kill();
+      secondAnimationRef.current?.kill();
     };
-  }, []);
+  }, [hoveredImage]);
 
   return (
     <section className="py-20 bg-white overflow-hidden" id="gallery">
@@ -59,23 +68,29 @@ const Gallery = () => {
         </div>
 
         {/* Sliding Gallery Container */}
-        <div className="relative w-full overflow-hidden" style={{ height: '800px' }}>
+        <div 
+          className="relative w-full overflow-hidden" 
+          style={{ height: '800px' }}
+        >
           {/* First Row */}
           <div 
             ref={firstRowRef}
-            className="flex gap-4"
+            className="flex gap-4 will-change-transform"
             style={{ 
               width: 'max-content',
               position: 'absolute',
-              top: '0'
+              top: '0',
+              transform: 'translate3d(0, 0, 0)'
             }}
           >
-            {[...images, ...images].map((image, index) => (
+            {[...images, ...images.slice(0, 5)].map((image, index) => (
               <motion.div
                 key={`row1-${image.id}-${index}`}
-                className="w-72 flex-shrink-0"
+                className="w-72 flex-shrink-0 transform-gpu"
                 whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.2 }}
+                onMouseEnter={() => setHoveredImage(image.id)}
+                onMouseLeave={() => setHoveredImage(null)}
               >
                 <div
                   className="relative aspect-square overflow-hidden rounded-lg cursor-pointer"
@@ -84,10 +99,11 @@ const Gallery = () => {
                   <img
                     src={image.url}
                     alt={image.alt}
+                    width={288}
+                    height={288}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0  bg-opacity-0 hover:bg-opacity-30 transition-all duration-300" />
                 </div>
               </motion.div>
             ))}
@@ -96,19 +112,22 @@ const Gallery = () => {
           {/* Second Row */}
           <div 
             ref={secondRowRef}
-            className="flex gap-4"
+            className="flex gap-4 will-change-transform"
             style={{ 
               width: 'max-content',
               position: 'absolute',
-              top: '400px'
+              top: '400px',
+              transform: 'translate3d(0, 0, 0)'
             }}
           >
-            {[...images, ...images].reverse().map((image, index) => (
+            {[...images, ...images.slice(0, 5)].reverse().map((image, index) => (
               <motion.div
                 key={`row2-${image.id}-${index}`}
-                className="w-72 flex-shrink-0"
+                className="w-72 flex-shrink-0 transform-gpu"
                 whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.2 }}
+                onMouseEnter={() => setHoveredImage(image.id)}
+                onMouseLeave={() => setHoveredImage(null)}
               >
                 <div
                   className="relative aspect-square overflow-hidden rounded-lg cursor-pointer"
@@ -117,10 +136,11 @@ const Gallery = () => {
                   <img
                     src={image.url}
                     alt={image.alt}
+                    width={288}
+                    height={288}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0  bg-opacity-0 hover:bg-opacity-30 transition-all duration-300" />
                 </div>
               </motion.div>
             ))}

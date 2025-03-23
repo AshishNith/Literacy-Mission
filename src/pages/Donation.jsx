@@ -1,5 +1,6 @@
 import React from 'react';
-import Button from '../components/Button';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Donation = () => {
   const bankDetails = {
@@ -26,12 +27,28 @@ const Donation = () => {
   ];
 
   const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
-    // You could add a toast notification here
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        toast.success('Copied to clipboard!', {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      })
+      .catch(() => {
+        toast.error('Failed to copy!', {
+          position: "bottom-right",
+          autoClose: 2000,
+        });
+      });
   };
 
   return (
     <>
+      <ToastContainer />
       {/* Hero Section */}
       <section className="relative min-h-[40vh] flex items-center bg-gradient-to-r from-blue-900 to-gray-900">
         <div className="absolute inset-0 opacity-20">
@@ -64,11 +81,11 @@ const Donation = () => {
                     <div className="sm:w-1/3 text-gray-600 capitalize">
                       {key.replace(/([A-Z])/g, ' $1').trim()}
                     </div>
-                    <div className="sm:w-2/3 flex items-center justify-between mt-1 sm:mt-0">
+                    <div className="sm:w-2/3  flex items-center justify-between mt-1 sm:mt-0">
                       <span className="font-medium text-gray-900">{value}</span>
                       <button 
                         onClick={() => copyToClipboard(value)}
-                        className="text-blue-600 hover:text-blue-700"
+                        className="text-blue-600 cursor-pointer hover:text-blue-700"
                       >
                         <i className="ri-file-copy-line"></i>
                       </button>
@@ -103,14 +120,16 @@ const Donation = () => {
             </div>
 
             {/* CTA Section */}
-            <div className="text-center mt-12">
-              <Button
-                variant="gradient"
-                size="lg"
-                icon={<i className="ri-heart-fill"></i>}
-              >
-                Make a Donation
-              </Button>
+            <div className="text-center mt-12 space-y-4">
+              <p className="text-2xl font-semibold text-gray-800">
+                "Education is the most powerful weapon which you can use to change the world"
+              </p>
+              <p className="text-gray-600 italic">
+                - Nelson Mandela
+              </p>
+              <p className="text-lg text-gray-700 mt-4">
+                Your donation today can light up someone's tomorrow. Every contribution, no matter how small, helps us create a brighter, more literate future.
+              </p>
             </div>
           </div>
         </div>

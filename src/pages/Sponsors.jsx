@@ -127,7 +127,7 @@ const Sponsors = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600">
+      {/* <section className="py-16 bg-blue-600">
         <div className="container mx-auto px-4 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Become a Sponsor</h2>
           <p className="mb-8 text-blue-100">Join us in making a difference</p>
@@ -135,7 +135,7 @@ const Sponsors = () => {
             Contact Us
           </button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

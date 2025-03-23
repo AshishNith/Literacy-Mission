@@ -106,7 +106,7 @@ const GyanManthan = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center">
+          {/* <div className="text-center">
             <Button
               variant="gradient"
               size="lg"
@@ -114,7 +114,7 @@ const GyanManthan = () => {
             >
               Register for Next Event
             </Button>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

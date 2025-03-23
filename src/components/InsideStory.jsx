@@ -1,21 +1,24 @@
 import React, { useState } from 'react'
+import img1 from '/assets/Gyanmanthan/1.jpg';
+import img2 from '/assets/Gyanmanthan/2.jpg';
+import img3 from '/assets/Gyanmanthan/3.jpg';
 
 const InsideStory = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
-      image: "https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg", // Teaching Sessions
-      title: "Teaching Sessions",
-      description: "Daily classes at Vivekanand Lecture Hall Complex"
+      image: img1, // Teaching Sessions
+      title: "Gyanmanthan",
+      description: "Annual educational fair of Literacy Mission"
     },
     {
-      image: "https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg", // Extra Activities
-      title: "Extra Activities",
-      description: "Drawing and painting competitions"
+      image: img2, // Extra Activities
+      title: "Science Exhibition",
+      description: "Displaying innovative projects by children"
     },
     {
-      image: "https://images.pexels.com/photos/3184406/pexels-photo-3184406.jpeg", // Cultural Events
+      image: img3, // Cultural Events
       title: "Cultural Events",
       description: "Celebrating festivals and cultural programs"
     }
