@@ -24,8 +24,8 @@ const Sponsors = () => {
     },
     {
       icon: 'ri-rocket-line',
-      title: 'Product Launch Platform',
-      description: 'Ideal platform for launching new products'
+      title: 'Event Publicity',
+      description: 'Wide publicity through various events starting one week before main event'
     },
     {
       icon: 'ri-heart-line',
@@ -125,17 +125,6 @@ const Sponsors = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      {/* <section className="py-16 bg-blue-600">
-        <div className="container mx-auto px-4 text-center text-white">
-          <h2 className="text-3xl font-bold mb-4">Become a Sponsor</h2>
-          <p className="mb-8 text-blue-100">Join us in making a difference</p>
-          <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-medium hover:bg-blue-50 transition-colors">
-            Contact Us
-          </button>
-        </div>
-      </section> */}
     </div>
   );
 };

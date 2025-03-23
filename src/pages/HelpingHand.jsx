@@ -3,7 +3,8 @@ import React from 'react';
 const HelpingHand = () => {
   const supportCategories = {
     faculty: [
-      { name: 'Prof. Lalit Kumar Awasthi', role: 'Director, NIT Hamirpur' },
+      { name: 'Prof. Vinod Yadava', role: 'Director, NIT Hamirpur' },
+      { name: 'Prof. I.K. Bhatt', role: 'Ex-Director NIT Hamirpur' },
       { name: 'Prof. Y.D. Sharma', role: 'NIT Hamirpur' },
       { name: 'Dr. Anoop Kumar', role: 'NIT Hamirpur' },
       { name: 'Dr. Kamlesh Dutta', role: 'NIT Hamirpur' },

@@ -20,34 +20,39 @@ const Contact = () => {
 
   const studentContacts = [
     {
-      name: 'Abhay Kumar',
-      email: 'abhaykrsingh16.17@gmail.com',
-      mobile: '8350873822'
+      name: 'Praneet Shrivastava',
+      email: 'praneet.nitian@gmail.com',
+      mobile: '7848070796'
     },
     {
-      name: 'Pallvi Dogra',
-      email: 'pallvidogra19@gmail.com',
-      mobile: '7018192117'
+      name: 'Shailendra Kumar',
+      email: 'shailendrakumar143728@gmai.com',
+      mobile: '9653001364'
     },
     {
-      name: 'Krishna Odedara',
-      email: 'krishnaodedara30@gmail.com',
-      mobile: '8219223374'
+      name: 'Jyotika Jakhar',
+      email: 'jyotikajakhar1401@gmail.com',
+      mobile: '7876328461'
     },
     {
-      name: 'Amarjeet Kumar',
-      email: 'amarjeetkur99@gmail.com',
-      mobile: '8219321538'
+      name: 'Hritik Kumar',
+      email: 'hritikkumar20022018@gmail.com',
+      mobile: '6299531641'
     },
     {
-      name: 'Vishakha Jangir',
-      email: 'vishakhajangir618@gmail.com',
-      mobile: '9057236733'
+      name: 'Nikita Silu',
+      email: 'nikitasilu09@gmail.com',
+      mobile: '9680462320'
     },
     {
-      name: 'Harsh Gupta',
-      email: 'harshgupta0203@gmail.com',
-      mobile: '6387210322'
+      name: 'Akhilesh Kumar Verma',
+      email: 'akhilesh7april3@gmail.com',
+      mobile: '7458097065'
+    },
+    {
+      name: 'Rakesh Kumar',
+      email: 'rakeshkumarjamui32@gmail.com',
+      mobile: '9905725161'
     }
   ];
 
