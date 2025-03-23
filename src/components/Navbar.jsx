@@ -85,7 +85,7 @@ const Navbar = () => {
             <img 
               src="/assets/logo.png" 
               alt="Logo" 
-              className="h-10 w-auto"
+              className="h-10 w-auto rounded-full"
             />
             <span className={`text-xl font-bold ${
               isScrolled ? 'text-gray-900' : 'text-white'
