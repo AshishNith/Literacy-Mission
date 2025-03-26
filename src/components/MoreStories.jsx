@@ -3,16 +3,16 @@ import React from 'react'
 const MoreStories = () => {
   const videos = [
     {
-      id: "J95aCKY3BE0",
-      title: "An Introduction to Literacy Mission",
-      description: "Learn about who we are and what drives our mission at NIT Hamirpur",
-      thumbnail: "https://img.youtube.com/vi/J95aCKY3BE0/maxresdefault.jpg"
+      id: "b1Ce96yfe5M",
+      title: "Literacy Mission Nith",
+      description: "Health Camp 2025 || NIT Hamirpur || Literacy Mission",
+      thumbnail: "https://img.youtube.com/vi/b1Ce96yfe5M/maxresdefault.jpg"
     },
     {
-      id: "kwkCe6CKSWQ",
-      title: "What We Do",
-      description: "Explore our activities and initiatives that make a difference in children's lives",
-      thumbnail: "https://img.youtube.com/vi/kwkCe6CKSWQ/maxresdefault.jpg"
+      id: "o9pXhn2TUvE",
+      title: "PRAYAS 2K25 | Literacy Mission NITH",
+      description: "Highlights from our annual cultural event Prayas 2025",
+      thumbnail: "https://img.youtube.com/vi/o9pXhn2TUvE/maxresdefault.jpg"
     },
     {
       id: "ENOUff3tjyA",

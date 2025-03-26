@@ -24,6 +24,7 @@ const Navbar = () => {
       { name: 'NIT Hamirpur', to: 'https://nith.ac.in', external: true },
       { name: 'Helping Hands', to: '/helping-hands' },
       { name: 'Sponsors', to: '/sponsors' },
+      { name: 'In Media', to: '/media' },
       { name: 'Volunteers', to: '/teams' },
       { name: 'Support', to: '/support' }
     ]}
@@ -84,7 +85,7 @@ const Navbar = () => {
             <img 
               src="/assets/logo.png" 
               alt="Logo" 
-              className="h-10 w-auto rounded-full"
+              className="h-10 w-auto"
             />
             <span className={`text-xl font-bold ${
               isScrolled ? 'text-gray-900' : 'text-white'

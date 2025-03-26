@@ -9,20 +9,20 @@ const Donation = () => {
     micr: '177002003',
     bankCode: '10367',
     accountName: 'Literacy Mission NITH',
-    accountSignatories: 'Meet Vyas and Akash Kumar',
+    accountSignatories: 'Anjali Maurya and Jay Pratap',
     accountNumber: '30172923495'
   };
 
   const contacts = [
     {
-      name: 'Saumya Asati',
-      email: '0000saumya@gmail.com',
-      phone: '+91-7999984308'
+      name: 'Shubham Jaswal',
+      email: 'Jaswalshubham7683@gmail.com',
+      phone: '+91-9805331020'
     },
     {
-      name: 'Sai Krishna',
-      email: 'revanth.vuruma@yahoo.com',
-      phone: '+91-7013583763'
+      name: 'Nilu kumari ',
+      email: 'kumarinilu019@gmail.com',
+      phone: '+91-8235256750'
     }
   ];
 

@@ -4,77 +4,22 @@ import Button from './Button'
 const FinancialDocumentations = () => {
   const documents = [
     {
-      year: '2012-13',
+      year: '2012-23',
       files: [
         {
-          title: 'Expenditure & Donations',
-          url: 'https://nith.ac.in/literacy_mission/pdf/literacy_budget.pdf',
+          title: 'All Financial Records',
+          url: 'https://drive.google.com/drive/folders/1W3W7HmaZyI0_EreeLCCZoHLlIIY_N2lW?usp=sharing',
           type: 'combined'
         }
       ]
     },
     {
-      year: '2013-14',
+      year: '2023-24',
       files: [
         {
-          title: 'Expenditure',
-          url: 'https://nith.ac.in/literacy_mission/pdf/Expenditure2014.pdf',
-          type: 'expenditure'
-        }
-      ]
-    },
-    {
-      year: '2014-15',
-      files: [
-        {
-          title: 'Expenditure',
-          url: 'https://nith.ac.in/literacy_mission/pdf/Expenditure2015.pdf',
-          type: 'expenditure'
-        },
-        {
-          title: 'Donations',
-          url: 'https://nith.ac.in/literacy_mission/pdf/Donations2015.pdf',
-          type: 'donations'
-        }
-      ]
-    },
-    {
-      year: '2015-16',
-      files: [
-        {
-          title: 'Expenditure',
-          url: 'https://nith.ac.in/literacy_mission/pdf/expenditure2016.pdf',
-          type: 'expenditure'
-        },
-        {
-          title: 'Donations',
-          url: 'https://nith.ac.in/literacy_mission/pdf/Donations2016.pdf',
-          type: 'donations'
-        }
-      ]
-    },
-    {
-      year: '2017-18',
-      files: [
-        {
-          title: 'Donations',
-          url: 'https://nith.ac.in/literacy_mission/pdf/Donations2017-18.pdf',
-          type: 'donations'
-        }
-      ]
-    },
-    {
-      year: '2018-19',
-      files: [
-        {
-          title: 'Expenditure',
-          url: 'https://nith.ac.in/literacy_mission/pdf/expenditure2018-19.pdf',
-          type: 'expenditure'
-        },
-        {
-          title: 'Donations',
-          url: 'https://nith.ac.in/literacy_mission/pdf/donations2018-19.pdf',
-          type: 'donations'
+          title: 'Expenditure & Donations',
+          url: 'https://drive.google.com/drive/folders/1IGPfl-asAlaSIlKwPV3AspHFFpxMBUSe?usp=sharing',
+          type: 'combined'
         }
       ]
     }

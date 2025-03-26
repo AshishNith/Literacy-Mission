@@ -27,7 +27,7 @@ const Prayas = () => {
   const highlights = [
     {
       year: '2023',
-      theme: 'ज्ञानं परमं बलम',
+      theme: 'सर्वे भवन्तु शिक्षिताः',
       description: 'Celebrating 15 years of empowerment through education',
       image: 'path_to_image'
     }
@@ -110,7 +110,7 @@ const Prayas = () => {
           <div className="bg-gradient-to-r from-blue-900 to-gray-900 text-white rounded-2xl p-12 mb-20">
             <div className="text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                ज्ञानं परमं बलम
+                सर्वे भवन्तु शिक्षिताः
               </h2>
               <p className="text-xl text-blue-200">
                 Celebrating 15 years of contribution in making society a better place
