@@ -159,14 +159,17 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <button className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all
-              ${isScrolled 
-                ? 'bg-blue-600 text-white hover:bg-blue-700' 
-                : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'
-              }
-            `}>
+            <Link
+              to="/join"
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all
+                ${isScrolled 
+                  ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                  : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'
+                }
+              `}
+            >
               Join Us
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -251,9 +254,12 @@ const Navbar = () => {
               </div>
             ))}
             <div className="px-4 pt-4 border-t border-gray-200/10"></div>
-            <button className="w-full py-3 text-center text-sm font-medium bg-blue-600 text-white rounded-full hover:bg-blue-700">
+            <Link
+              to="/join"
+              className="w-full py-3 text-center text-sm font-medium bg-blue-600 text-white rounded-full hover:bg-blue-700"
+            >
               Join Us
-            </button>
+            </Link>
           </div>
         </div>
       </nav>

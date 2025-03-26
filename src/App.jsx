@@ -13,6 +13,8 @@ import HelpingHand from './pages/HelpingHand'
 import Sponsors from './pages/Sponsors'
 import Teams from './pages/Teams'
 import Support from './pages/Support'
+import JoinUs from './pages/JoinUs'
+import ScrollToTop from './components/ScrollToTop'
 // import FloatingShapes from './components/FloatingShapes'
 
 
@@ -20,11 +22,13 @@ const App = () => {
   return (
     <Router>
       <div className="relative min-h-screen">
+        <ScrollToTop />
         {/* <FloatingShapes /> */}
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/achievements" element={<Achievements />} />
+          <Route path="/join" element={<JoinUs />} />
           <Route path="/gyanmanthan" element={<GyanManthan />} />
           <Route path="/spardha" element={<Spardha />} />
           <Route path="/prayas" element={<Prayas />} />
