@@ -256,7 +256,7 @@ const Navbar = () => {
             <div className="px-4 pt-4 border-t border-gray-200/10"></div>
             <Link
               to="/join"
-              className="w-full py-3 text-center text-sm font-medium bg-blue-600 text-white rounded-full hover:bg-blue-700"
+              className="w-full py-3 px-3 text-center text-sm font-medium bg-blue-600 text-white rounded-full hover:bg-blue-700"
             >
               Join Us
             </Link>
