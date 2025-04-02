@@ -113,7 +113,7 @@ const Prayas = () => {
                 सर्वे भवन्तु शिक्षिताः
               </h2>
               <p className="text-xl text-blue-200">
-                Celebrating 15 years of contribution in making society a better place
+                Celebrating 20 years of contribution in making society a better place
               </p>
             </div>
           </div>
@@ -125,7 +125,7 @@ const Prayas = () => {
               size="lg"
               icon={<i className="ri-ticket-line"></i>}
             >
-              Register for PRAYAS 2024
+              Register for PRAYAS 2025
             </Button>
           </div>
 
